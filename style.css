@@ -1,0 +1,182 @@
+:root {
+  --enel-blue-dark: #0b3d91;
+  --enel-blue: #1565c0;
+  --enel-blue-light: #4fa8ff;
+  --enel-sky: #e8f2ff;
+  --enel-gold: #ffb703;
+  --enel-radius: 16px;
+  --enel-shadow: 0 10px 30px rgba(11, 61, 145, 0.12);
+  --enel-shadow-sm: 0 4px 14px rgba(11, 61, 145, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(160deg, var(--enel-sky) 0%, #f6faff 45%, #ffffff 100%);
+  min-height: 100vh;
+  font-family: "Segoe UI", "Sarabun", Tahoma, sans-serif;
+  color: #1a2b4c;
+}
+
+.enel-navbar {
+  background: linear-gradient(90deg, var(--enel-blue-dark), var(--enel-blue));
+  box-shadow: var(--enel-shadow-sm);
+}
+
+.enel-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.enel-navbar .navbar-brand i {
+  color: var(--enel-gold);
+}
+
+.enel-hero {
+  background: linear-gradient(135deg, var(--enel-blue-dark), var(--enel-blue) 55%, var(--enel-blue-light));
+  border-radius: 0 0 32px 32px;
+  color: #fff;
+  padding: 3rem 1rem 4.5rem;
+  box-shadow: var(--enel-shadow);
+}
+
+.enel-hero h1 {
+  font-weight: 800;
+  font-size: 2.1rem;
+}
+
+.enel-hero p {
+  opacity: 0.92;
+}
+
+.enel-card {
+  border: none;
+  border-radius: var(--enel-radius);
+  box-shadow: var(--enel-shadow-sm);
+  background: #fff;
+}
+
+.enel-card-auth {
+  margin-top: -3.5rem;
+  border-radius: var(--enel-radius);
+  box-shadow: var(--enel-shadow);
+  border: none;
+}
+
+.enel-stat-card {
+  border-radius: var(--enel-radius);
+  border: none;
+  box-shadow: var(--enel-shadow-sm);
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.enel-stat-card .stat-icon {
+  font-size: 2rem;
+  opacity: 0.35;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.enel-stat-card.blue {
+  background: linear-gradient(135deg, var(--enel-blue-dark), var(--enel-blue));
+}
+
+.enel-stat-card.gold {
+  background: linear-gradient(135deg, #f28c00, var(--enel-gold));
+}
+
+.enel-stat-card.teal {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+}
+
+.enel-stat-card .stat-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.nav-pills .nav-link {
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--enel-blue-dark);
+}
+
+.nav-pills .nav-link.active {
+  background: linear-gradient(90deg, var(--enel-blue-dark), var(--enel-blue));
+}
+
+.btn-enel {
+  background: linear-gradient(90deg, var(--enel-blue-dark), var(--enel-blue));
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-enel:hover {
+  background: linear-gradient(90deg, var(--enel-blue), var(--enel-blue-light));
+  color: #fff;
+}
+
+.btn-enel-outline {
+  border: 2px solid var(--enel-blue);
+  color: var(--enel-blue-dark);
+  font-weight: 600;
+  background: #fff;
+}
+
+.btn-enel-outline:hover {
+  background: var(--enel-sky);
+  color: var(--enel-blue-dark);
+}
+
+.table-enel thead {
+  background: var(--enel-sky);
+}
+
+.badge-rank {
+  background: linear-gradient(90deg, var(--enel-gold), #ffd166);
+  color: #6b4300;
+  font-weight: 700;
+}
+
+.category-pill {
+  border-radius: 999px;
+  background: var(--enel-sky);
+  color: var(--enel-blue-dark);
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.enel-section-title {
+  font-weight: 700;
+  color: var(--enel-blue-dark);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--enel-blue-light);
+  box-shadow: 0 0 0 0.2rem rgba(21, 101, 192, 0.15);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.enel-footer {
+  color: #6b7c93;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 576px) {
+  .enel-hero h1 {
+    font-size: 1.5rem;
+  }
+  .enel-card-auth {
+    margin-top: -2.5rem;
+  }
+}

@@ -1,0 +1,59 @@
+name: Deploy ระบบความดีเอเนล ไปยัง GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ตรวจสอบว่า index.html มีอยู่
+        run: |
+          if [ ! -f "index.html" ]; then
+            echo "::error::ไม่พบไฟล์ index.html ที่ root ของ repository"
+            exit 1
+          fi
+          echo "พบไฟล์ index.html เรียบร้อย"
+
+      - name: ตรวจสอบว่าเว็บสามารถ Deploy ได้ (ตรวจไฟล์ที่จำเป็น)
+        run: |
+          for f in "css/style.css" "js/app.js"; do
+            if [ ! -f "$f" ]; then
+              echo "::warning::ไม่พบไฟล์ $f (เว็บอาจแสดงผลไม่สมบูรณ์)"
+            else
+              echo "พบไฟล์ $f"
+            fi
+          done
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
